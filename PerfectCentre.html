@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style>
+
+.fakescreen {
+	width: 960px; 
+	height: 540px;
+	overflow: auto;  /* visible | hidden | scroll | auto */
+	background-color: lightgrey;
+}
+
+
+
+
+/* 
+
+Apply class perfectcentercolumn or perfectcenterrow to the container. 
+The Child divs will be centered.
+
+The flex-direction is user-definable.
+
+The overflow is hidden because in testing, having child content that sums to a
+length greater than the container causes a scrollbar.  BUT the scrollbar was
+unable to reveal content that had gone off-top or off-left.  So therefore,
+overflow may as well be hidden.
+
+The width and height needed to be 100% to pull the area outwards.
+
+*/  
+
+
+
+.perfectcentercolumn {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%; height:100%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+.perfectcenterrow {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%; height:100%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+.demobox {
+	background-color: yellow;
+	padding: 3em;
+}
+
+</style>
+
+
+<div class="fakescreen">
+
+
+
+
+	<div class="perfectcentercolumn">
+	
+		<div class="demobox">Box 1</div>
+		
+		<!-- Additional items to try
+		<div class="demobox">Box 2</div>
+		<div class="demobox">Box 3</div>
+		<div class="demobox">Box 4</div>
+		<div class="demobox">Box 5</div>
+		<div class="demobox">Box 6</div>
+		<div class="demobox">Box 7</div>
+		<div class="demobox">Box 7</div>
+		<div class="demobox">Box 7</div>
+		<div class="demobox">Box 7</div>
+		-->
+		
+	</div>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>

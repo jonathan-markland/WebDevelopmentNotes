@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style>
+
+.fakescreen {
+	width: 480px; 
+	height: 440px;
+	overflow: auto;  /* visible | hidden | scroll | auto */
+	background-color: lightgrey;
+}
+
+
+
+/* To do an overlay:
+
+   Create an outer containing div, with child divs as layers.
+
+   On the outer containing div:
+   Set class = overlaycontainer.
+   Choose display: as per requirements.  Tested for stability as block, inline-block.
+   NOTE:  You MUST set a width: and height: or the whole thing will disappear!
+   
+   On all child divs:
+   Set class = overlaymember.
+   Use left: and top: to perform origin offsetting of each child individually.
+   Note that if used, overriding overflow:hidden to, say, overflow:auto only 
+   makes sense on the topmost (last child) div.
+*/
+
+.overlaycontainer {
+  position:relative;
+  overflow:hidden;
+}
+
+.overlaymember {
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  width:100%;
+  height:100%;
+}
+
+
+
+
+/* Not needed by Overlay example: */
+
+.bgback1   { background-color: #444444; }  .fgback1   { color: #FFFFFF; }
+.bgback2   { background-color: #DDDDDD; }  .fgback2   { color: #000000; }
+.bgsplash1 { background-color: #1BA8F0; }  .fgsplash1 { color: #000000; }
+#text      { font-size: 50px; color: white; }
+
+</style>
+
+
+
+
+<div class="fakescreen">
+
+
+
+
+	AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA AAAA
+	<div class="overlaycontainer bgsplash1" style="display:inline-block; width:20em; height:20em;">
+		<!-- <img class="overlaymember" style="left:50%; top:50%;" src="circle.svg" alt="Circle"/> -->
+		<svg class="overlaymember" width="300" height="300" style="left:30%; top:30%;"><circle cx="150" cy="150" r="140" stroke="blue" stroke-width="4" fill="cyan" /></svg>
+		<div class="overlaymember" style="overflow:auto;">
+			<div id="text">Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text Overlay text</div>
+		</div>
+	</div>
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+	BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB BBBB
+
+
+
+</div>
+
+
+</body>
+
+</html>
