@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style>
+
+html, body {
+	width: 100%; 
+	height: 100%;
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+
+
+
+/* DESKTOP */
+
+@media only screen and (min-width: 700px) {
+	.overflow-by-device { overflow: auto; }       /* For 'desktop' devices we introduce scroll 
+	                                                 potential for some panels, to contain any 
+	                                                 lengthy content. */
+}
+
+/* PHONE */
+
+@media only screen and (max-width: 700px) {
+	.overflow-by-device { overflow: visible; }    /* For 'phone' devices we never want scroll bars on these
+	                                                 panels, so all sub-content is shown, stretching the outer content,
+	                                                 and the user swipe-pans the whole page. */
+}
+
+
+
+
+
+/* home-page-grid : ALL MEDIA */
+
+.home-page-grid {
+	display: grid;
+	width: 100%;
+}
+
+/* home-page-grid : DESKTOP */
+
+@media only screen and (min-width: 700px) {
+
+	.home-page-grid {
+
+		height: 100%;  /* Pull the grid to the available vertical area */
+	
+		grid-template-columns: 
+			4% 64% 4% 24% 4%;
+		
+		grid-template-rows: 
+			2rem 2.5rem max-content auto 2.0rem max-content;
+		
+		grid-template-areas:
+			'mbar mbar mbar mbar mbar'
+			'.    .    .    .    .   '
+			'.    appt appt appt .   '
+			'.    left .    righ .   '
+			'.    .    .    .    .   '
+			'foot foot foot foot foot';
+		
+	}
+}
+
+/* home-page-grid : PHONE */
+
+@media only screen and (max-width: 700px) {
+
+	.home-page-grid {
+
+		/* Note that height:100%; is missing, since PHONE is infinite length
+		   vertically, and establishes its own document height.  
+		   Also height:100% caused truncation of the home-page-grid background. */
+
+		grid-template-columns: 
+			4% 92% 4%;
+		
+		grid-template-rows: 
+			2rem 2.5rem max-content auto 2.0rem auto 2.0rem max-content;
+		
+		grid-template-areas:
+			'mbar mbar mbar'
+			'.    .    .   '
+			'.    appt .   '
+			'.    left .   '
+			'.    .    .   '
+			'.    righ .   '
+			'.    .    .   '
+			'foot foot foot';
+
+	}
+}
+
+
+
+/* This is just for show, and is nothing to do with responsiveness. */
+
+.shadow {
+	box-shadow: 
+		0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+		0px 4px 5px 0px rgba(0, 0, 0, 0.042),
+		0px 1px 10px 0px rgba(0, 0, 0, 0.036);
+}
+
+</style>
+
+
+
+
+<!-- This style section is not really demonstrating responsiveness,
+     rather it is providing content that is affected by responsiveness. -->
+
+<style>
+
+.example-list div { padding:1.5em; }  /* Make the rainbow items a bit fatter */
+
+.clr1 { background-color:#3366FF; }
+.clr2 { background-color:#CC33FF; }
+.clr3 { background-color:#FF3366; }
+.clr4 { background-color:#33CCFF; }
+.clr5 { background-color:#F5B800; }
+.clr5 { background-color:#33FFCC; }
+.clr6 { background-color:#66FF33; }
+.clr7 { background-color:#FFCC33; }
+.clr8 { background-color:#CCFF33; }
+
+</style>
+
+
+
+
+<!-- The "home page" grid.  Covers the whole area of the display -->
+
+<div class="home-page-grid" style="background-color:#F7F7F7;">
+
+	<div style="grid-area: mbar; background-color:#FBC02D;">MENU BAR</div>
+	<div style="grid-area: appt;"><H1>Application Title</h1></div>
+
+	<div style="grid-area: left; background-color:#FAFAFA;" class="shadow overflow-by-device">
+		<div class="example-list">
+			<div class="clr3">Menu item #1</div>
+			<div class="clr5">Menu item #2</div>
+			<div class="clr7">Menu item #3</div>
+		</div>
+	</div>
+
+	<div style="grid-area: righ; background-color:#FAFAFA;" class="shadow overflow-by-device">
+		<div class="example-list">
+			<div class="clr1">List item #1</div>
+			<div class="clr2">List item #2</div>
+			<div class="clr3">List item #3</div>
+			<div class="clr4">List item #4</div>
+			<div class="clr5">List item #5</div>
+			<div class="clr6">List item #6</div>
+			<div class="clr7">List item #7</div>
+			<div class="clr8">List item #8</div>
+			<div class="clr7">List item #9</div>
+			<div class="clr6">List item #10</div>
+		</div>
+	</div>
+
+	<div style="grid-area: foot; background-color:#FFF176;">FOOTER</div>
+
+</div>
+
+
+
+</body>
+
+</html>
