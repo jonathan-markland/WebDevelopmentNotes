@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+<!-- This style section is only extra artistic effects. -->
+<style>
+
+.fakescreen {
+	width: 960px; 
+	height: 540px;
+	overflow: auto;  /* visible | hidden | scroll | auto */
+	background-color: lightgrey;
+}
+
+.big-box-menu-container {
+  width:    100%; 
+  height:   100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;                /* A suggestion if you ever did have menu-items of different heights!  Otherwise this is benign. */
+  align-content: safe space-evenly;   /* "safe" can be removed if less than a screen's worth will be shown */
+  overflow: auto;
+}
+
+.menu-item {
+	display: block;
+	box-sizing: border-box;
+	width: 12rem;
+	height: 12rem;
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.clr1 { background-color:#3366FF; }
+.clr2 { background-color:#CC33FF; }
+.clr3 { background-color:#FF3366; }
+.clr4 { background-color:#33CCFF; }
+.clr5 { background-color:#F5B800; }
+.clr5 { background-color:#33FFCC; }
+.clr6 { background-color:#66FF33; }
+.clr7 { background-color:#FFCC33; }
+.clr8 { background-color:#CCFF33; }
+
+</style>
+
+<div class="fakescreen">
+	<div class="big-box-menu-container">
+		<div class="menu-item clr1">
+
+			<!-- The SVG data in this example requires a 0..100 x 0..100 coordinate space -->
+			<svg viewbox="0 0 100 100">
+				<circle cx="50" cy="50" r="50" stroke="white" stroke-width="8" fill="black" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr2">
+
+			<!-- Using the previous SVG but saying the coordinate space is 0..200 x 0..200 -->
+			<svg viewbox="0 0 200 200">
+				<circle cx="50" cy="50" r="50" stroke="white" stroke-width="8" fill="black" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr3">
+
+			<!-- The SVG data in this example requires a 0..200 x 0..200 coordinate space.
+			     The stroke-width is the same number (8) as the first example, but looks half the thickness 
+			     because the view box is precisely double the area. -->
+			<svg viewbox="0 0 200 200">
+				<circle cx="100" cy="100" r="100" stroke="white" stroke-width="8" fill="black" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr4">
+
+			<!-- What happens if you incorrectly set the viewbox dimension (vertical in this case) 
+			     The outer div does not clip overflow, and it looks a mess. 
+				 The viewbox is of the form:  x y width height -->
+			<svg viewbox="0 50 100 200">
+				<circle cx="100" cy="100" r="100" stroke="white" stroke-width="8" fill="black" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr5">
+
+			<!-- This example shows the bottom right quarter of the 200 x 200 circle image.
+			     The viewbox is of the form:  x y width height   -->
+			<svg viewbox="100 100 100 100" >
+				<circle cx="100" cy="100" r="100" stroke="white" stroke-width="8" fill="black" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr6" style="overflow:hidden">
+
+			<!-- If we do another example of setting a tall aspect ratio, AND hide overflow on the
+			     parent div, it still looks messy because it overlaps the parent's padding -->
+			<svg viewbox="0 0 100 200">
+				<circle cx="100" cy="100" r="100" stroke="white" stroke-width="8" fill="black" />
+				<circle cx="100" cy="100" r="50" stroke="red" stroke-width="8" fill="yellow" />
+				Sorry, your browser does not support inline SVG.
+			</svg> 
+
+		</div>
+		<div class="menu-item clr7">
+
+			<!-- Taking the previous example's wayward SVG, we can add a surrounding div with
+			     width and height 100%, that hides overflow, to clip the mess.  This might be
+			     a useful consideration on SVGs that have problems. -->
+			<div style="overflow:hidden; width:100%; height:100%;">
+				<svg viewbox="0 0 100 200">
+					<circle cx="100" cy="100" r="100" stroke="white" stroke-width="8" fill="black" />
+					<circle cx="100" cy="100" r="50" stroke="red" stroke-width="8" fill="yellow" />
+					Sorry, your browser does not support inline SVG.
+				</svg> 
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
